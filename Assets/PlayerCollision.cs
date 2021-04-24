@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerCollision : MonoBehaviour
 {
     private static string BULLET_TAG = "Bullet";
+    private static string HAZARD_TAG = "Danger";
 
     [SerializeField]
     private PlayerShoot playerShoot;
@@ -56,6 +57,14 @@ public class PlayerCollision : MonoBehaviour
         {
             bullet = collision.transform.gameObject;
             HitByBullet();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag(HAZARD_TAG))
+        {
+            Death();
         }
     }
 
