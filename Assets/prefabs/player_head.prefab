@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 3462953314042991566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.2, y: -0.34, z: 0}
-  m_LocalScale: {x: 1.6114, y: 1.6114, z: 1.6114}
+  m_LocalScale: {x: 0.056931395, y: 0.056931395, z: 0.056931395}
   m_Children:
   - {fileID: 9187454507274385961}
   - {fileID: 8681554064177696570}
@@ -224,7 +224,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6949628647692607372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
