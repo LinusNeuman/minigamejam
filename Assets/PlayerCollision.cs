@@ -24,8 +24,12 @@ public class PlayerCollision : MonoBehaviour
     private GameObject bulletCatchIndicator;
 
     public Rigidbody2D[] bodyparts;
+    public CircleCollider2D[] bodypartColliders;
 
     public Animator animator;
+
+    [SerializeField]
+    private float gibPower = 250;
 
     private void Update()
     {
@@ -68,8 +72,14 @@ public class PlayerCollision : MonoBehaviour
         foreach (var part in bodyparts)
         {
             part.simulated = true;
-            part.AddForce(new Vector2(Random.Range(-1, 1f), Random.Range(-1f, 1f)) * 500);
+            part.AddForce(new Vector2(Random.Range(-1, 1f), Random.Range(-1f, 1f)) * gibPower);
         }
+
+        foreach (var part in bodypartColliders)
+        {
+            part.enabled = true;
+        }
+
         //TOTO: Death stuff;
         print("You died lol");
     }
