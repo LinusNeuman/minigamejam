@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class PlayerCollision : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject gameoverScreen;
+
     [SerializeField]
     private float gibPower = 250;
 
@@ -39,6 +42,11 @@ public class PlayerCollision : MonoBehaviour
             {
                 SetBulletCatcher();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ReloadScene();
         }
     }
 
@@ -66,7 +74,18 @@ public class PlayerCollision : MonoBehaviour
 
     private void Death()
     {
+        ActivateGib();
 
+        DeactivateControlls();
+
+        gameoverScreen.SetActive(true);
+
+        //TOTO: Death stuff;
+        print("You died lol");
+    }
+
+    private void ActivateGib()
+    {
         animator.enabled = false;
 
         foreach (var part in bodyparts)
@@ -79,9 +98,12 @@ public class PlayerCollision : MonoBehaviour
         {
             part.enabled = true;
         }
+    }
 
-        //TOTO: Death stuff;
-        print("You died lol");
+    private void DeactivateControlls()
+    {
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<PlayerShoot>().enabled = false;
     }
 
     private void CatchTheBullet()
@@ -103,5 +125,10 @@ public class PlayerCollision : MonoBehaviour
         yield return new WaitForSeconds(catchTime);
         catchTheBullet = false;
         bulletCatchIndicator.SetActive(false);
+    }
+
+    private void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
