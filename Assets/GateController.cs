@@ -11,6 +11,14 @@ public class GateController : MonoBehaviour
     [SerializeField]
     float GateEndPositionY;
 
+    [SerializeField]
+    AudioClip GateOpening1;
+
+    [SerializeField]
+    AudioClip GateOpening2;
+
+    AudioSource myAudioSource;
+
     GameObject myChildMovable;
 
     BoxCollider2D myBoxCollider;
@@ -21,6 +29,8 @@ public class GateController : MonoBehaviour
     void Start()
     {
         myBoxCollider = GetComponent<BoxCollider2D>();
+
+        myAudioSource = GetComponent<AudioSource>();
 
         myChildMovable = transform.GetChild(0).gameObject;
     }
@@ -41,6 +51,9 @@ public class GateController : MonoBehaviour
         myBoxCollider.enabled = false;
 
         myChildMovable.transform.DOLocalMoveY(GateEndPositionY, 2.0f);
+
+        myAudioSource.clip = GateOpening1;
+        myAudioSource.Play();
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
