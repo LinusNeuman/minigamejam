@@ -23,6 +23,10 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField]
     private GameObject bulletCatchIndicator;
 
+    public Rigidbody2D[] bodyparts;
+
+    public Animator animator;
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -58,6 +62,14 @@ public class PlayerCollision : MonoBehaviour
 
     private void Death()
     {
+
+        animator.enabled = false;
+
+        foreach (var part in bodyparts)
+        {
+            part.simulated = true;
+            part.AddForce(new Vector2(Random.Range(-1, 1f), Random.Range(-1f, 1f)) * 500);
+        }
         //TOTO: Death stuff;
         print("You died lol");
     }

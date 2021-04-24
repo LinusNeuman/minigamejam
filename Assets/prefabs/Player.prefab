@@ -1,5 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!50 &1735948610
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669193659079843587}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!50 &1899235518
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4285081525174969862}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5779261053024486189
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +207,11 @@ MonoBehaviour:
   catchTime: 0.2
   catchCooldown: 1
   bulletCatchIndicator: {fileID: 5779261053024486189}
+  bodyparts:
+  - {fileID: 1899235518}
+  - {fileID: 332399502}
+  - {fileID: 1735948610}
+  animator: {fileID: 5854912211235345200}
 --- !u!70 &7273066945024724653
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -253,6 +300,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!50 &332399502
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713330459647109700}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &826774747280831944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -260,6 +328,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7273066945024724648}
     m_Modifications:
+    - target: {fileID: 610209372641262669, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1308521569977842022, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -326,6 +398,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 334ebaed44ea3ad48935e9997f61a754, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
+--- !u!1 &4285081525174969862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3462953314042991566, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
+  m_PrefabInstance: {fileID: 826774747280831944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1824386863966244014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1308521569977842022, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
@@ -334,5 +411,15 @@ Transform:
 --- !u!95 &5854912211235345200 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6501395634542110456, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
+  m_PrefabInstance: {fileID: 826774747280831944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7713330459647109700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6949628647692607372, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
+  m_PrefabInstance: {fileID: 826774747280831944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &669193659079843587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 157695629039643339, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
   m_PrefabInstance: {fileID: 826774747280831944}
   m_PrefabAsset: {fileID: 0}
