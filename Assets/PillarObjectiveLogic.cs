@@ -10,6 +10,8 @@ public class PillarObjectiveLogic : MonoBehaviour
 
     ParticleSystem myParticleSystem;
 
+    bool IsCompleted = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +30,15 @@ public class PillarObjectiveLogic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (IsCompleted)
+            return;
+
         if (collision.gameObject.CompareTag("Bullet"))
         {
             myObjectiveTracker.ObjectiveCompleted(gameObject);
             myAudioSource.Play();
             myParticleSystem.Play();
+            IsCompleted = true;
         }
     }
 
