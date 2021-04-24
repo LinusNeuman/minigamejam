@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 7135873664473223676, guid: bed15b901e15b6e4799b13f99f703641, type: 3}
-  bulletCount: 1
   bulletSpawnOffset: 0.5
 --- !u!70 &7273066945024724653
 CapsuleCollider2D:
@@ -166,15 +165,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1308521569977842022, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.09905348
+      value: 0.14898634
       objectReference: {fileID: 0}
     - target: {fileID: 1308521569977842022, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.09905348
+      value: 0.14898634
       objectReference: {fileID: 0}
     - target: {fileID: 1308521569977842022, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.09905348
+      value: 0.14898634
       objectReference: {fileID: 0}
     - target: {fileID: 1308521569977842022, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
       propertyPath: m_LocalPosition.x
