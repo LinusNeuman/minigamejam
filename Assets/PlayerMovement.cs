@@ -17,17 +17,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        if (moveHorizontal > 0)
-        {
-            {
-                myRigidbody2D.velocity = new Vector2(PlayerSpeed, myRigidbody2D.velocity.y);
+        Vector2 axisMovement = Vector2.zero;
+        axisMovement.x = Input.GetAxis("Horizontal");
+        axisMovement.y = Input.GetAxis("Vertical");
 
-            }
-        }
-        if (moveHorizontal < 0)
-        {
-            myRigidbody2D.velocity = new Vector2(-PlayerSpeed, myRigidbody2D.velocity.y);
-        }
+        myRigidbody2D.velocity = axisMovement * PlayerSpeed;
     }
 }
