@@ -27,7 +27,11 @@ public class PlayerShoot : MonoBehaviour
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
             Vector3 position = transform.position;
+            position.x += 10.0f * transform.forward.x;
+            position.y += 10.0f * transform.forward.y;
             GameObject gameObj = Instantiate(Bullet, position, rotation);
+            Rigidbody2D bulletRigidbody = gameObj.GetComponent<Rigidbody2D>();
+            bulletRigidbody.AddForce(transform.forward * 50.0f);
         }
     }
 }
