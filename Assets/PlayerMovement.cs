@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
-    // Start is called before the first frame update
     void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
@@ -30,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 axisMovement = Vector2.zero;
@@ -39,6 +37,5 @@ public class PlayerMovement : MonoBehaviour
 
         myRigidbody2D.velocity = axisMovement * PlayerSpeed;
         animator.SetFloat("speed", myRigidbody2D.velocity.magnitude);
-
     }
 }
