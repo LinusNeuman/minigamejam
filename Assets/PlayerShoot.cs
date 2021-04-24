@@ -15,6 +15,12 @@ public class PlayerShoot : MonoBehaviour
 
     Vector3 myTargetPosition;
 
+    [SerializeField]
+    private AudioClip[] shootSounds;
+
+    [SerializeField]
+    private AudioSource audioSource;
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -52,6 +58,8 @@ public class PlayerShoot : MonoBehaviour
         GameObject gameObj = Instantiate(Bullet, position, rotation);
 
         bulletCount--;
+
+        audioSource.PlayOneShot(shootSounds[Random.Range(0, shootSounds.Length)]);
     }
 
     public void AddBullet()
