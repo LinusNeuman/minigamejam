@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GateController : MonoBehaviour
 {
     bool Locked = true;
+
+    [SerializeField]
+    float GateEndPositionY;
+
+    GameObject myChildMovable;
 
     BoxCollider2D myBoxCollider;
 
@@ -15,6 +21,8 @@ public class GateController : MonoBehaviour
     void Start()
     {
         myBoxCollider = GetComponent<BoxCollider2D>();
+
+        myChildMovable = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -31,6 +39,8 @@ public class GateController : MonoBehaviour
 
         // Remove collision on box collider
         myBoxCollider.enabled = false;
+
+        myChildMovable.transform.DOLocalMoveY(GateEndPositionY, 2.0f);
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {

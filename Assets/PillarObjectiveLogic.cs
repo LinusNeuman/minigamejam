@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class PillarObjectiveLogic : MonoBehaviour
 {
-    private CircleCollider2D myCircleCollider;
-
     private ObjectiveTracker myObjectiveTracker;
 
     // Start is called before the first frame update
     void Start()
     {
-        myCircleCollider = GetComponent<CircleCollider2D>();
         myObjectiveTracker = FindObjectOfType<ObjectiveTracker>();
     }
 
