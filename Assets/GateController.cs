@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GateController : MonoBehaviour
 {
     bool Locked = true;
 
     BoxCollider2D myBoxCollider;
+
+    bool HasPlayerCompletedLevel = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +34,7 @@ public class GateController : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Locked)
+        if (Locked || HasPlayerCompletedLevel)
             return;
 
         if (collision.gameObject.CompareTag("Player"))
@@ -42,6 +45,9 @@ public class GateController : MonoBehaviour
 
     void PlayerCompletedLevel()
     {
+        HasPlayerCompletedLevel = true;
+
         // Load next level
+        Application.LoadLevel(Application.loadedLevel + 1);
     }
 }
