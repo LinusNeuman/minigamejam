@@ -7,6 +7,9 @@ public class PlayerShoot : MonoBehaviour
     public GameObject Bullet;
 
     [SerializeField]
+    private int bulletCount = 1;
+
+    [SerializeField]
     [Range(0, 1f)]
     private float bulletSpawnOffset = 0.5f;
 
@@ -16,18 +19,43 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            myTargetPosition = Input.mousePosition;
-            myTargetPosition = Camera.main.ScreenToWorldPoint(new Vector3(myTargetPosition.x, myTargetPosition.y, 0.0f));
+            if (bulletCount <= 0)
+            {
+                return;
+            }
 
-            var aimDirection = (myTargetPosition - transform.position).normalized;
-
-            float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90;
-            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-            Vector3 position = transform.position;
-            position += aimDirection * bulletSpawnOffset;
-
-            GameObject gameObj = Instantiate(Bullet, position, rotation);
+            ShootBullet();
         }
+
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            bulletCount++;
+        }
+#endif
+
+    }
+
+    private void ShootBullet()
+    {
+        myTargetPosition = Input.mousePosition;
+        myTargetPosition = Camera.main.ScreenToWorldPoint(new Vector3(myTargetPosition.x, myTargetPosition.y, 0.0f));
+
+        var aimDirection = (myTargetPosition - transform.position).normalized;
+
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        Vector3 position = transform.position;
+        position += aimDirection * bulletSpawnOffset;
+
+        GameObject gameObj = Instantiate(Bullet, position, rotation);
+
+        bulletCount--;
+    }
+
+    public void AddBullet()
+    {
+        bulletCount++;
     }
 }
