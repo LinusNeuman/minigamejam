@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 2
+  animator: {fileID: 0}
 --- !u!114 &7273066945024724655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 7135873664473223676, guid: bed15b901e15b6e4799b13f99f703641, type: 3}
+  bulletCount: 1
   bulletSpawnOffset: 0.5
 --- !u!70 &7273066945024724653
 CapsuleCollider2D:
@@ -218,6 +220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player_head
       objectReference: {fileID: 0}
+    - target: {fileID: 6501395634542110456, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 334ebaed44ea3ad48935e9997f61a754, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
 --- !u!4 &1824386863966244014 stripped
