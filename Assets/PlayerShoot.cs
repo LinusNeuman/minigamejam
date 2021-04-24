@@ -6,15 +6,12 @@ public class PlayerShoot : MonoBehaviour
 {
     public GameObject Bullet;
 
-    Vector2 myTargetPosition;
+    [SerializeField]
+    [Range(0, 1f)]
+    private float bulletSpawnOffset = 0.5f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Vector3 myTargetPosition;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -22,11 +19,14 @@ public class PlayerShoot : MonoBehaviour
             myTargetPosition = Input.mousePosition;
             myTargetPosition = Camera.main.ScreenToWorldPoint(new Vector3(myTargetPosition.x, myTargetPosition.y, 0.0f));
 
-            Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            var aimDirection = (myTargetPosition - transform.position).normalized;
+
+            float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
             Vector3 position = transform.position;
+            position += aimDirection * bulletSpawnOffset;
+
             GameObject gameObj = Instantiate(Bullet, position, rotation);
         }
     }
