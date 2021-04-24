@@ -7,11 +7,15 @@ public class ObjectiveTracker : MonoBehaviour
     List<GameObject> PillarsRequired;
     List<GameObject> PillarsCompleted;
 
+    private GateController myGateController;
+
     // Start is called before the first frame update
     void Start()
     {
         PillarsRequired = new List<GameObject>(GameObject.FindGameObjectsWithTag("Pillar"));
         PillarsCompleted = new List<GameObject>(PillarsRequired.Count);
+
+        myGateController = FindObjectOfType<GateController>();
     }
 
     // Update is called once per frame
@@ -35,6 +39,7 @@ public class ObjectiveTracker : MonoBehaviour
         if (PillarsCompleted.Count == PillarsRequired.Count)
         {
             // Victory!
+            myGateController.Unlock();
         }
     }
 }
