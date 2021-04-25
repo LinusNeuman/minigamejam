@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/Windy.unity
     guid: ffd5451b268c3d14fb44f601fd5e00a8
+  - enabled: 1
+    path: Assets/scenes/LastLevel.unity
+    guid: 909d4187bdbe20248843baa5aa4cb263
   m_configObjects: {}
