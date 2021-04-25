@@ -12,6 +12,11 @@ public class PillarObjectiveLogic : MonoBehaviour
 
     bool IsCompleted = false;
 
+    SpriteRenderer mySpriteRenderer;
+    
+    [SerializeField]
+    Sprite CompletedSprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +25,8 @@ public class PillarObjectiveLogic : MonoBehaviour
         myAudioSource = GetComponent<AudioSource>();
 
         myParticleSystem = GetComponentInChildren<ParticleSystem>();
+
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -39,6 +46,8 @@ public class PillarObjectiveLogic : MonoBehaviour
             myAudioSource.Play();
             myParticleSystem.Play();
             IsCompleted = true;
+
+            mySpriteRenderer.sprite = CompletedSprite;
         }
     }
 
