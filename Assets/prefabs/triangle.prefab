@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6176369297016705960}
   - component: {fileID: 5409143340886154844}
-  - component: {fileID: 6945105317724549552}
+  - component: {fileID: 8028165520513544563}
   m_Layer: 0
   m_Name: triangle
   m_TagString: Untagged
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4351a42ef8caef542b9aea92790018cd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9322a582120c80d46bfbbef574ee93f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &6945105317724549552
-EdgeCollider2D:
+--- !u!60 &8028165520513544563
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -97,13 +97,17 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.74, y: 1.39}
+    newSize: {x: 2.74, y: 1.39}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   m_Points:
-  - {x: 1.2968149, y: -0.6462646}
-  - {x: -1.2828134, y: -0.6423714}
-  - {x: 0.019405916, y: 0.66243273}
-  - {x: 1.323282, y: -0.65015787}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+    m_Paths:
+    - - {x: 1.3114631, y: -0.63665396}
+      - {x: 0.023215652, y: 0.65248406}
+      - {x: -1.2649683, y: -0.6362897}
