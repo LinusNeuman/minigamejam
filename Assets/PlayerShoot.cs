@@ -25,11 +25,6 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (bulletCount <= 0)
-            {
-                return;
-            }
-
             ShootBullet();
         }
 

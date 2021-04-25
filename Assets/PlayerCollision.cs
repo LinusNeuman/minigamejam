@@ -35,6 +35,16 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField]
     private float gibPower = 250;
 
+    private AudioSource myAudioSource;
+
+    [SerializeField]
+    AudioClip DeathClip;
+
+    private void Start()
+    {
+        myAudioSource = GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -83,6 +93,10 @@ public class PlayerCollision : MonoBehaviour
 
     private void Death()
     {
+        myAudioSource.clip = DeathClip;
+        myAudioSource.pitch = Random.Range(0.5f, 3);
+        myAudioSource.Play();
+
         ActivateGib();
 
         DeactivateControlls();
