@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class GateController : MonoBehaviour
 {
+    [SerializeField]
     bool Locked = true;
 
     [SerializeField]
@@ -25,6 +26,9 @@ public class GateController : MonoBehaviour
 
     bool HasPlayerCompletedLevel = false;
 
+    [SerializeField]
+    string TakePlayerToSpecialLevel = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,11 @@ public class GateController : MonoBehaviour
         myAudioSource = GetComponent<AudioSource>();
 
         myChildMovable = transform.GetChild(0).gameObject;
+
+        if (!Locked)
+        {
+            Unlock();
+        }
     }
 
     // Update is called once per frame
@@ -70,7 +79,13 @@ public class GateController : MonoBehaviour
     {
         HasPlayerCompletedLevel = true;
 
-        // Load next level
-        Application.LoadLevel(Application.loadedLevel + 1);
+        if (TakePlayerToSpecialLevel.Length > 0)
+        {
+            Application.LoadLevel(TakePlayerToSpecialLevel);
+        }
+        else
+        {
+            Application.LoadLevel(Application.loadedLevel + 1);
+        }
     }
 }
