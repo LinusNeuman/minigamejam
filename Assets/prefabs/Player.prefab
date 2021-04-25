@@ -906,7 +906,7 @@ MonoBehaviour:
   PlayerSpeed: 4
   animator: {fileID: 5854912211235345200}
   myAudioSource: {fileID: 4788685240916060294}
-  FootstepInterval: 0.4
+  FootstepInterval: 0.28
   FootstepPitchMin: 0.5
   FootstepPitchMax: 2
   SpeedConsideredMoving: 1
