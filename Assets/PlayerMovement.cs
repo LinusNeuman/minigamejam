@@ -11,6 +11,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private AudioSource myAudioSource;
+
+    float timeLastFootstep = 0.0f;
+
     void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
@@ -37,5 +42,16 @@ public class PlayerMovement : MonoBehaviour
 
         myRigidbody2D.velocity = axisMovement * PlayerSpeed;
         animator.SetFloat("speed", myRigidbody2D.velocity.magnitude);
+
+        if (Time.time - timeLastFootstep >= 0.4f)
+        {
+            timeLastFootstep = Time.time;
+
+            if (myRigidbody2D.velocity.magnitude >= 1.0f)
+            {
+                myAudioSource.pitch = Random.Range(0.5f, 2);
+                myAudioSource.Play();
+            }
+        }
     }
 }
