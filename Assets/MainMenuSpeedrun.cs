@@ -13,9 +13,9 @@ public class MainMenuSpeedrun : MonoBehaviour
         if (PlayerPrefs.HasKey(KEY))
         {
             var totalTime = PlayerPrefs.GetFloat(KEY);
-            float minutes = (totalTime / 60);
-            float seconds = (totalTime % 60);
-            timerTMP.text = "Best time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
+            int min = Mathf.FloorToInt(totalTime / 60);
+            int sec = Mathf.FloorToInt(totalTime % 60);
+            timerTMP.text = min.ToString("00") + ":" + sec.ToString("00");
         }
     }
 }

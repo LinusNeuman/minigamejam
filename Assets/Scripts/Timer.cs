@@ -16,6 +16,21 @@ public class Timer : MonoBehaviour
     private static string KEY = "SpeedrunTime";
     private bool timerRunning = true;
 
+    public static Timer Instance;
+
+    private void Awake()
+    {
+        if (!Instance)
+        {
+            Instance = this;
+        }
+
+        if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnLevelWasLoaded(int level)
     {
         if (level == 13)
@@ -24,6 +39,11 @@ public class Timer : MonoBehaviour
             SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
             HandleSpeedrun();
         }
+    }
+
+    public void AddTime()
+    {
+        totalTime += 1f;
     }
 
     private void HandleSpeedrun()
@@ -48,8 +68,8 @@ public class Timer : MonoBehaviour
         }
 
         totalTime += Time.deltaTime;
-        float minutes = (totalTime / 60);
-        float seconds = (totalTime % 60);
-        timerTMP.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        int min = Mathf.FloorToInt(totalTime / 60);
+        int sec = Mathf.FloorToInt(totalTime % 60);
+        timerTMP.text = min.ToString("00") + ":" + sec.ToString("00");
     }
 }
