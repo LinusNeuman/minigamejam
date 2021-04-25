@@ -951,6 +951,7 @@ MonoBehaviour:
   animator: {fileID: 5854912211235345200}
   gameoverScreen: {fileID: 1462898266}
   gibPower: 250
+  DeathClip: {fileID: 8300000, guid: 2d470d62ccd00d74bb9ef4655992f19d, type: 3}
 --- !u!70 &7273066945024724653
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1070,7 +1071,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.653
+  m_Volume: 0.693
   m_Pitch: 1
   Loop: 0
   Mute: 0
