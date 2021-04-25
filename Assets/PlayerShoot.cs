@@ -54,7 +54,10 @@ public class PlayerShoot : MonoBehaviour
 
         bulletCount--;
 
-        Timer.Instance.AddTime();
+        if (Timer.Instance)
+        {
+            Timer.Instance.AddTime();
+        }
 
         audioSource.PlayOneShot(shootSounds[Random.Range(0, shootSounds.Length)]);
     }
