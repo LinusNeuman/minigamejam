@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/DeadOrAlive.unity
     guid: e1aa8dd96b043574789bdade674979f5
+  - enabled: 1
+    path: Assets/scenes/Windy.unity
+    guid: ffd5451b268c3d14fb44f601fd5e00a8
   m_configObjects: {}
